@@ -1,5 +1,5 @@
 import React from 'react'
-import productsArr from '../../assets/data'
+import { productsArr } from '../../assets/data'
 import ProductsList from './ProductsList'
 
 const Products = () => {

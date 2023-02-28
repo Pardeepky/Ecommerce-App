@@ -5,7 +5,7 @@ import classes from './store.module.css'
 const Store = () => {
   return (
     <>
-    <div className={`container ${classes.store}`}>
+    <div className={classes.store}>
     <Products />
     </div>
     </>

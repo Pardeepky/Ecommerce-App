@@ -1,10 +1,10 @@
 import React from 'react'
 import classes from './headerCart.module.css'
 
-const HeaderCartButton = () => {
+const HeaderCartButton = ({ showCartHandler }) => {
   return (
     <>
-    <span className={classes.button}>Cart <span className={classes.badge}>0</span></span>
+      <button className={classes.button} onClick={showCartHandler}>Cart <span className={classes.badge}>0</span></button>
     </>
   )
 }
