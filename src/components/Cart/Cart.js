@@ -2,15 +2,19 @@ import Modal from "../UI/Modal";
 import classes from "./cart.module.css";
 import CartItem from "./CartItem";
 import {cartElements} from '../../assets/data'
+import { useContext } from "react";
+import CartContext from "../../context/cart-context";
 
 const Cart = (props) => {
 
-  const data = cartElements.map((item) => (
+  const cartCtx = useContext(CartContext);
+
+  const data = cartCtx.items.map((item) => (
     <CartItem
-      id={Math.random().toString()}
+      id={item.id}
       key={item.id}
       name={item.title}
-      amount={item.quantity}
+      quantity={item.quantity}
       price={item.price}
     ></CartItem>
   ));
@@ -22,7 +26,7 @@ const Cart = (props) => {
       {cartItems}
       <div className={classes.total}>
         <span>Total</span>
-        <span>$ 0</span>
+        <span>$ {cartCtx.totalAmount}</span>
       </div>
       <div className={classes.actions}>
         <button className={classes.button} >Purchase</button>

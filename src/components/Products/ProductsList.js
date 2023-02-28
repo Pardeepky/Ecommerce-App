@@ -1,19 +1,26 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
+import CartContext from '../../context/cart-context';
 
-const ProductsList = ({ item }) => {
+const ProductsList = (props) => {
+    const cartCtx = useContext(CartContext);
+
+    const handleSubmit = ({ item }) => {
+        cartCtx.addToCart({ ...item, quantity: 1 })
+    }
+
     return (
         <>
             <div className='d-flex justify-content-center col-md-6'>
                 <Card style={{ width: '18rem', margin: '1rem', border: 'none' }}>
-                    <Card.Title style={{textAlign:'center'}}>{item.title}</Card.Title>
-                    <Card.Img variant="top" src={item.imageUrl} />
+                    <Card.Title style={{ textAlign: 'center' }}>{props.item.title}</Card.Title>
+                    <Card.Img variant="top" src={props.item.imageUrl} />
                     <Card.Body>
                         <Card.Text>
-                            ${item.price}
+                            ${props.item.price}
                         </Card.Text>
-                        <Button variant="primary">Add to Cart</Button>
+                        <Button variant="primary" onClick={() => handleSubmit(props)}>Add to Cart</Button>
                     </Card.Body>
                 </Card>
             </div>

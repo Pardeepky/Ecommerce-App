@@ -5,6 +5,7 @@ import Store from "./views/Store";
 import Cart from "./components/Cart/Cart";
 import About from "./views/About";
 import Home from "./views/Home";
+import CartProvider from "./context/CartProvider";
 
 function App() {
   const [showCart, setShowCart] = useState(false)
@@ -18,19 +19,19 @@ function App() {
   }
 
   return (
-    <>
+    <CartProvider>
       {showCart && <Cart hideCartHandler={hideCartHandler} />}
       <Header showCartHandler={showCartHandler} />
       <main className="container">
-        {/* <Store />
+        <Store />
         <div className="d-flex justify-content-center">
-          <button className="btn btn-success">See the Cart</button>
+          <button className="btn btn-success" onClick={showCartHandler}>See the Cart</button>
         </div>
-        <About /> */}
-        <Home />
+        {/* <About />
+        <Home /> */}
       </main>
       <Footer />
-    </>
+    </CartProvider>
   );
 }
 
