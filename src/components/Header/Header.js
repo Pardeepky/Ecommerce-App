@@ -17,6 +17,9 @@ const Header = ({ showCartHandler }) => {
           <li>
             <NavLink to='/about' style={{ color: 'white', textDecoration: 'none' }}>ABOUT</NavLink>
           </li>
+          <li>
+            <NavLink to='/contact-us' style={{ color: 'white', textDecoration: 'none' }}>CONTACT US</NavLink>
+          </li>
         </ul>
         <HeaderCartButton showCartHandler={showCartHandler} />
       </header>

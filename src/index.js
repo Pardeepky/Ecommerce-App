@@ -8,6 +8,7 @@ import Home from './views/Home';
 import Store from './views/Store';
 import About from './views/About';
 import CartProvider from './context/CartProvider';
+import ContactUs from './views/ContactUs';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -19,6 +20,7 @@ root.render(
           <Route path='/' element={<Home />} />
           <Route path='/store' element={<Store />} />
           <Route path='/about' element={<About />} />
+          <Route path='/contact-us' element={<ContactUs />} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
