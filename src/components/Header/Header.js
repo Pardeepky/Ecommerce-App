@@ -12,13 +12,13 @@ const Header = ({ showCartHandler }) => {
             <NavLink to='/' style={{ color: 'white', textDecoration: 'none' }}>HOME</NavLink>
           </li>
           <li>
-            <NavLink to='/store' style={{ color: 'white', textDecoration: 'none' }}>STORE</NavLink>
+            <NavLink to='store' style={{ color: 'white', textDecoration: 'none' }}>STORE</NavLink>
           </li>
           <li>
-            <NavLink to='/about' style={{ color: 'white', textDecoration: 'none' }}>ABOUT</NavLink>
+            <NavLink to='about' style={{ color: 'white', textDecoration: 'none' }}>ABOUT</NavLink>
           </li>
           <li>
-            <NavLink to='/contact-us' style={{ color: 'white', textDecoration: 'none' }}>CONTACT US</NavLink>
+            <NavLink to='contact-us' style={{ color: 'white', textDecoration: 'none' }}>CONTACT US</NavLink>
           </li>
         </ul>
         <HeaderCartButton showCartHandler={showCartHandler} />

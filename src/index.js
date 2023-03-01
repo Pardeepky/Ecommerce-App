@@ -9,6 +9,7 @@ import Store from './views/Store';
 import About from './views/About';
 import CartProvider from './context/CartProvider';
 import ContactUs from './views/ContactUs';
+import ProductDetails from './components/Products/ProductDetails';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -18,9 +19,10 @@ root.render(
       <Routes>
         <Route path='/' element={<App />}>
           <Route path='/' element={<Home />} />
-          <Route path='/store' element={<Store />} />
-          <Route path='/about' element={<About />} />
-          <Route path='/contact-us' element={<ContactUs />} />
+          <Route path='store' element={<Store />} />
+          <Route path='store/:id' element={<ProductDetails />} />
+          <Route path='about' element={<About />} />
+          <Route path='contact-us' element={<ContactUs />} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

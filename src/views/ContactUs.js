@@ -14,7 +14,7 @@ const ContactUs = () => {
                 email: emailRef.current.value,
                 number: numberRef.current.value,
             };
-            const res = await axios.post('https://react-http-cc9eb-default-rtdb.firebaseio.com/contactDetails.json', {
+            await axios.post('https://react-http-cc9eb-default-rtdb.firebaseio.com/contactDetails.json', {
                 body: JSON.stringify(contactPersonDetails),
                 header: {
                     'Contetnt-Type': 'application/json'

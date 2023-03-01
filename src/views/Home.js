@@ -5,7 +5,7 @@ const Home = () => {
     return (
         <>
             <h1 className='text-center m-3'>Tours</h1>
-            <table class="table">
+            <table className="table">
                 <tbody>
                     {toursData.map((item) => {
                         return (

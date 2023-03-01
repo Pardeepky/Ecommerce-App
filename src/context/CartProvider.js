@@ -17,6 +17,7 @@ const CartProvider = (props) => {
     }
 
     const addToCart = (addItem) => {
+        console.log(addItem);
         try {
             const index = items.findIndex((item) => item.id === addItem.id);
             if (index > -1) {
