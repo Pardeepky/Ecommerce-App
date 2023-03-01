@@ -1,37 +1,23 @@
-import { useState } from "react";
+import { useContext } from "react";
 import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
-import Store from "./views/Store";
 import Cart from "./components/Cart/Cart";
-import About from "./views/About";
-import Home from "./views/Home";
-import CartProvider from "./context/CartProvider";
+import { Outlet } from "react-router-dom";
+import CartContext from "./context/cart-context";
 
 function App() {
-  const [showCart, setShowCart] = useState(false)
-
-  const showCartHandler = () => {
-    setShowCart(true);
-  }
-
-  const hideCartHandler = () => {
-    setShowCart(false);
-  }
+ 
+  const cartCtx = useContext(CartContext);
 
   return (
-    <CartProvider>
-      {showCart && <Cart hideCartHandler={hideCartHandler} />}
-      <Header showCartHandler={showCartHandler} />
+    <>
+      {cartCtx.showCart && <Cart hideCartHandler={cartCtx.hideCartHandler} />}
+      <Header showCartHandler={cartCtx.showCartHandler} />
       <main className="container">
-        <Store />
-        <div className="d-flex justify-content-center">
-          <button className="btn btn-success" onClick={showCartHandler}>See the Cart</button>
-        </div>
-        {/* <About />
-        <Home /> */}
+        <Outlet />
       </main>
       <Footer />
-    </CartProvider>
+    </>
   );
 }
 

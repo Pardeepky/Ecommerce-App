@@ -6,6 +6,16 @@ const CartProvider = (props) => {
     const [items, setItems] = useState([]);
     const [totalAmount, setTotalAmount] = useState(0);
 
+    const [showCart, setShowCart] = useState(false)
+
+    const showCartHandler = () => {
+        setShowCart(true);
+    }
+
+    const hideCartHandler = () => {
+        setShowCart(false);
+    }
+
     const addToCart = (addItem) => {
         try {
             const index = items.findIndex((item) => item.id === addItem.id);
@@ -30,6 +40,9 @@ const CartProvider = (props) => {
         totalAmount: totalAmount,
         addToCart: addToCart,
         deleteFromCart: deleteFromCart,
+        showCart: showCart,
+        showCartHandler: showCartHandler,
+        hideCartHandler: hideCartHandler,
     }
     return (
         <CartContext.Provider value={cartContext}>
