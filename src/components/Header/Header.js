@@ -1,9 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import HeaderCartButton from './HeaderCartButton'
 import classes from './header.module.css'
 import { NavLink } from 'react-router-dom'
+import AuthContext from '../../context/Auth-Context'
 
 const Header = ({ showCartHandler }) => {
+
+  const authCtx = useContext(AuthContext);
   return (
     <>
       <header className={classes.header}>
@@ -18,10 +21,13 @@ const Header = ({ showCartHandler }) => {
             <NavLink to='about' style={{ color: 'white', textDecoration: 'none' }}>ABOUT</NavLink>
           </li>
           <li>
+            <NavLink to='login' style={{ color: 'white', textDecoration: 'none' }}>LOGIN</NavLink>
+          </li>
+          <li>
             <NavLink to='contact-us' style={{ color: 'white', textDecoration: 'none' }}>CONTACT US</NavLink>
           </li>
         </ul>
-        <HeaderCartButton showCartHandler={showCartHandler} />
+        {authCtx.isLoggedIn && <HeaderCartButton showCartHandler={showCartHandler} />}
       </header>
       <h1 className={classes.heading}>The Generics</h1>
     </>
