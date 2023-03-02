@@ -12,19 +12,19 @@ const Header = ({ showCartHandler }) => {
       <header className={classes.header}>
         <ul>
           <li>
-            <NavLink to='/' style={{ color: 'white', textDecoration: 'none' }}>HOME</NavLink>
+            <NavLink to='/' className={({ isActive }) => isActive ? classes.active : undefined} end>HOME</NavLink>
           </li>
           <li>
-            <NavLink to='store' style={{ color: 'white', textDecoration: 'none' }}>STORE</NavLink>
+            <NavLink to='/store' className={({ isActive }) => isActive ? classes.active : undefined} end>STORE</NavLink>
           </li>
           <li>
-            <NavLink to='about' style={{ color: 'white', textDecoration: 'none' }}>ABOUT</NavLink>
+            <NavLink to='/about' className={({ isActive }) => isActive ? classes.active : undefined} end>ABOUT</NavLink>
           </li>
           <li>
-            <NavLink to='login' style={{ color: 'white', textDecoration: 'none' }}>LOGIN</NavLink>
+            <NavLink to='/login' className={({ isActive }) => isActive ? classes.active : undefined} end>LOGIN</NavLink>
           </li>
           <li>
-            <NavLink to='contact-us' style={{ color: 'white', textDecoration: 'none' }}>CONTACT US</NavLink>
+            <NavLink to='/contact-us' className={({ isActive }) => isActive ? classes.active : undefined} end>CONTACT US</NavLink>
           </li>
         </ul>
         {authCtx.isLoggedIn && <HeaderCartButton showCartHandler={showCartHandler} />}

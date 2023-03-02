@@ -22,11 +22,11 @@ root.render(
           <Routes>
             <Route path='/' element={<App />}>
               <Route path='/' element={<Home />} />
-              <Route path='store' element={<Store />} />
-              <Route path='store/:id' element={<ProductDetails />} />
-              <Route path='about' element={<About />} />
-              <Route path='login' element={<Login />} />
-              <Route path='contact-us' element={<ContactUs />} />
+              <Route path='/store' element={<Store />} />
+              <Route path='/store/:id' element={<ProductDetails />} />
+              <Route path='/about' element={<About />} />
+              <Route path='/login' element={<Login />} />
+              <Route path='/contact-us' element={<ContactUs />} />
             </Route>
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
