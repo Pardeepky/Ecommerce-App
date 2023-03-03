@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import CartContext from "./cart-context";
 
-const url = 'https://crudcrud.com/api/8862b809c23c4c3f9386cdef02a0ddc2/'
+const url = 'https://crudcrud.com/api/0f6dd33cca264902a732eadfdc257266/'
 
 const CartProvider = (props) => {
 
@@ -28,8 +28,7 @@ const CartProvider = (props) => {
             } else {
                 const res = await axios.post(url + JSON.parse(user), addItem)
                 if (res.status) {
-                    setItems([...items, addItem]);
-                    setTotalAmount(totalAmount + addItem.price * addItem.quantity);
+                    fetchCartItem(user);
                 } else {
                     alert('Something went wrong');
                 }

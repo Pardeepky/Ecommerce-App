@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { useParams } from 'react-router-dom';
 import CartContext from '../../context/cart-context';
 import classes from './CartItem.module.css';
 

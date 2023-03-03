@@ -10,7 +10,8 @@ const ProductDetails = () => {
   const cartCtx = useContext(CartContext);
 
   const handleSubmit = (item) => {
-    cartCtx.addToCart({ ...item, quantity: 1 })
+    const userName = localStorage.getItem('userName')
+    cartCtx.addToCart({ ...item, quantity: 1 }, userName)
   }
 
   const fetchProductDetails = () => {
@@ -26,7 +27,7 @@ const ProductDetails = () => {
     <>
       <section className='container'>
         <div className="col d-flex justify-content-center">
-          <Card style={{ width: '20rem', height:'30rem', marginTop:'6rem' }}>
+          <Card style={{ width: '20rem', height: '30rem', marginTop: '6rem' }}>
             <Card.Img variant="top" src={product.imageUrl} alt={product.title} />
             <Card.Body>
               <Card.Title>{product.title}</Card.Title>
@@ -38,8 +39,8 @@ const ProductDetails = () => {
               <small className="text-muted">Price: {product.price} USD</small>
             </Card.Footer>
           </Card>
-          <ListGroup style={{ width: '36rem', margin:'5rem' }}>
-          <h1 className='text-center'>Reviews</h1>
+          <ListGroup style={{ width: '36rem', margin: '5rem' }}>
+            <h1 className='text-center'>Reviews</h1>
             {reviews.map((review) => (
               <Card key={review.id} className='mb-4'>
                 <Card.Header>{review.author}</Card.Header>
