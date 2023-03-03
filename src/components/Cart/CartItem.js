@@ -6,7 +6,8 @@ const CartItem = (props) => {
   const cartCtx = useContext(CartContext);
 
   const handleDelete = (props) => {
-    cartCtx.deleteFromCart(props);
+    const user = localStorage.getItem('userName')
+    cartCtx.deleteFromCart(props, user);
   }
 
   const price = `$${props.price.toFixed(2)}`;

@@ -7,6 +7,8 @@ const CartContext = createContext({
     deleteFromCart: (item) => { },
     showCartHandler: () => { },
     hideCartHandler: () => { },
+    addUser: () => { },
+    fetchCartItem: ()=> {}
 });
 
 export default CartContext

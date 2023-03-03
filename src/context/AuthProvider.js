@@ -1,28 +1,20 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import AuthContext from './Auth-Context'
 
 const AuthProvider = (props) => {
     const [token, setToken] = useState(null);
 
-
     const userIsLoggedIn = !!token;
-
-    const autoLogout = () => {
-        setTimeout(() => {
-            localStorage.removeItem('token')
-            setToken(null);
-        }, 50 * 1000);
-
-    }
 
     const loginHandler = (token) => {
         localStorage.setItem('token', JSON.stringify(token));
         setToken(token);
-        autoLogout()
     }
 
     const logoutHandler = () => {
         localStorage.removeItem('token')
+        localStorage.removeItem('userName')
         setToken(null);
     }
 
@@ -30,7 +22,7 @@ const AuthProvider = (props) => {
         token: token,
         isLoggedIn: userIsLoggedIn,
         login: loginHandler,
-        logout: logoutHandler
+        logout: logoutHandler,
     }
 
     useEffect(() => {

@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
     Button,
@@ -8,6 +8,7 @@ import {
     Label,
 } from "reactstrap";
 import AuthContext from "../context/Auth-Context";
+import CartContext from "../context/cart-context";
 import classes from './Login.module.css'
 
 const Login = () => {
@@ -16,6 +17,7 @@ const Login = () => {
     const navigate = useNavigate();
 
     const authCtx = useContext(AuthContext)
+    const cartCtx = useContext(CartContext);
 
     const [isLoading, setIsLoading] = useState(false);
 
@@ -40,7 +42,12 @@ const Login = () => {
             if (res.ok) {
                 const data = await res.json();
                 authCtx.login(data.idToken);
+                cartCtx.addUser(enteredEmail);
                 navigate('/store');
+                setTimeout(() => {
+                    authCtx.logout();
+                    navigate('/login')
+                }, 5 * 60 * 1000);
             } else {
                 const err = await res.json();
                 alert(err.error.message)

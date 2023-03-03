@@ -9,7 +9,8 @@ const ProductsList = (props) => {
     const navigate = useNavigate();
 
     const handleSubmit = ({ item }) => {
-        cartCtx.addToCart({ ...item, quantity: 1 })
+        const userName = localStorage.getItem('userName')
+        cartCtx.addToCart({ ...item, quantity: 1 }, userName)
     }
 
     const handleImageClick = (id) => {
@@ -21,7 +22,7 @@ const ProductsList = (props) => {
             <div className='d-flex justify-content-center col-md-6'>
                 <Card style={{ width: '18rem', margin: '1rem', border: 'none' }}>
                     <Card.Title style={{ textAlign: 'center' }}>{props.item.title}</Card.Title>
-                    <Card.Img variant="top" src={props.item.imageUrl} onClick={() => handleImageClick(props.item.id)} />
+                    <Card.Img variant="top" src={props.item.imageUrl} onClick={() => handleImageClick(props.item.id)} style={{ cursor: 'pointer' }}/>
                     <Card.Body>
                         <Card.Text>
                             ${props.item.price}
