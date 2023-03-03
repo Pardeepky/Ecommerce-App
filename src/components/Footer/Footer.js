@@ -7,13 +7,13 @@ const Footer = () => {
         <>
             <footer className={classes.footer}>
                 <div className={classes['footer-title']}>
-                <h1>The Generics</h1>
+                    <h1>The Generics</h1>
                 </div>
                 <div className={classes['footer-icons']}>
                     <ul>
-                        <li><SocialIcon url="https://youtube.com"/></li>
-                        <li><SocialIcon url="https://spotify.com"/></li>
-                        <li><SocialIcon url="https://facebook.com"/></li>
+                        <li><SocialIcon url="https://youtube.com" target='_blank' /></li>
+                        <li><SocialIcon url="https://spotify.com" target='_blank' /></li>
+                        <li><SocialIcon url="https://facebook.com" target='_blank' /></li>
                     </ul>
                 </div>
             </footer>
