@@ -23,6 +23,7 @@ const ContactUs = () => {
             nameRef.current.value = '';
             emailRef.current.value = '';
             numberRef.current.value = '';
+            window.alert("Contact Details sent")
         } catch (err) {
             console.log(err);
         }

@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import CartContext from "./cart-context";
 
-const url = 'https://crudcrud.com/api/0f6dd33cca264902a732eadfdc257266/'
+const url = 'https://crudcrud.com/api/a59a70b2422a4737abcb1036bcb3693d/'
 
 const CartProvider = (props) => {
 
@@ -48,8 +48,7 @@ const CartProvider = (props) => {
             }
         } catch (err) {
             console.log(err);
-        }
-        setTotalAmount(totalAmount - item.price * item.quantity);
+        };
     }
 
     const addUserToLocal = (user) => {
